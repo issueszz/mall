@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.malladmin.dao.UmsAdminRoleRelationDao">
+    <!--批量插入用户角色-->
+    <insert id="insertList">
+        INSERT INTO ums_admin_role_relation (admin_id, role_id) VALUES
+        <foreach collection="list" separator="," item="item" index="index">
+            (#{item.adminId, jdbcType=BIGINT},
+             #{item.roleId, jdbcType=BIGINT})
+        </foreach>
+    </insert>
+    <!--获取用户持有的资源-->
+    <select id="getResourceList" resultType="com.example.mallmbg.model.UmsResource">
+        SELECT
+            urs.id id,
+            urs.name name,
+            urs.url url,
+            urs.description description,
+            urs.category_id categoryId,
+            urs.create_time createTime
+        FROM
+            ums_admin_role_relation uar
+        LEFT JOIN ums_role ur ON uar.role_id = ur.id
+        LEFT JOIN ums_role_resource_relation urrr ON ur.id = urrr.role_id
+        LEFT JOIN ums_resource urs ON urrr.resource_id = urs.id
+        WHERE
+            uar.admin_id = #{adminId}
+        AND urs.id IS NOT NULL
+        GROUP BY
+            urs.id
+    </select>
+    <!--获取用户持有的角色详情-->
+    <select id="getRoleList" resultType="com.example.mallmbg.model.UmsRole">
+        SELECT
+            ur.*
+        FROM
+            ums_admin_role_relation uar
+        LEFT JOIN ums_role ur ON uar.role_id = ur.id
+        WHERE uar.admin_id = #{adminId}
+    </select>
+</mapper>
