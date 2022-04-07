@@ -7,7 +7,6 @@
         <module>mall-common</module>
         <module>mall-mbg</module>
         <module>mall-admin</module>
-        <module>mall-security</module>
         <module>mall-portal</module>
         <module>mall-auth</module>
         <module>mall-gateway</module>
