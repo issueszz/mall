@@ -1,5 +1,12 @@
 spring:
   profiles:
-    active: dev
+    active: prod
   application:
     name: mall-admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://192.168.3.49:8848
+      config:
+        server-addr: http://192.168.3.49:8848
+        file-extension: yaml
