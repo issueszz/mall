@@ -1,5 +1,12 @@
 spring:
   profiles:
-    active: dev
+    active: prod
   application:
     name: mall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://nacos-registry:8848
+      config:
+        server-addr: http://nacos-registry:8848
+        file-extension: yaml
