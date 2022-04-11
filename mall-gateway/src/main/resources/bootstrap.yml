@@ -10,3 +10,4 @@ spring:
       config:
         server-addr: http://nacos-registry:8848
         file-extension: yaml
+        group: mall
