@@ -7,9 +7,10 @@
         <module>mall-common</module>
         <module>mall-mbg</module>
         <module>mall-admin</module>
-        <module>mall-portal</module>
+<!--        <module>mall-portal</module>-->
         <module>mall-auth</module>
         <module>mall-gateway</module>
+        <module>mall-search</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
