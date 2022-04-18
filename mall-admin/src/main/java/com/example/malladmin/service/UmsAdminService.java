@@ -37,4 +37,7 @@ public interface UmsAdminService {
     List<UmsResource> getResourceList(Long adminId);
 
     UserDto loadUserByUsername(String username);
+
+    /*获取当前后台登陆用户*/
+    UmsAdmin getCurrentAdmin();
 }

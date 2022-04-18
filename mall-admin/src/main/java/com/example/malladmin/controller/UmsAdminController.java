@@ -50,13 +50,8 @@ public class UmsAdminController {
     }
 
     @GetMapping("/info")
-    public CommonResult getAdminInfo(Principal principal) {
-        /*获取上下文失败*/
-        if (principal == null) {
-            return CommonResult.unauthorized(null);
-        }
-        String username = principal.getName();
-        UmsAdmin umsAdmin = umsAdminService.getAdminByUsername(username);
+    public CommonResult getAdminInfo() {
+        UmsAdmin umsAdmin = umsAdminService.getCurrentAdmin();
         Map<String, Object> data = new HashMap<>();
         /*写入用户名*/
         data.put("username", umsAdmin.getUsername());

@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
+import cn.hutool.json.JSONUtil;
 import com.example.malladmin.dao.UmsAdminRoleRelationDao;
 import com.example.malladmin.dto.UmsAdminParam;
 import com.example.malladmin.service.AuthService;
@@ -20,8 +21,6 @@ import com.example.mallmbg.mapper.UmsAdminMapper;
 import com.example.mallmbg.mapper.UmsAdminRoleRelationMapper;
 import com.example.mallmbg.model.*;
 import com.github.pagehelper.PageHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +53,9 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    private HttpServletRequest request;
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
@@ -201,4 +203,20 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         return umsAdminMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public UmsAdmin getCurrentAdmin() {
+        String userStr = request.getHeader(AuthConstant.USER_TOKEN_HEADER);
+        if (StrUtil.isEmpty(userStr)) {
+            Asserts.fail(ResultCode.UNAUTHORIZED);
+        }
+        UserDto userDto = JSONUtil.toBean(userStr, UserDto.class);
+
+        /*缓存中获取用户信息*/
+        UmsAdmin admin = umsAdminCacheService.getAdmin(userDto.getId());
+        if (admin == null) {
+            admin = umsAdminMapper.selectByPrimaryKey(userDto.getId());
+            umsAdminCacheService.setAdmin(admin);
+        }
+        return admin;
+    }
 }
