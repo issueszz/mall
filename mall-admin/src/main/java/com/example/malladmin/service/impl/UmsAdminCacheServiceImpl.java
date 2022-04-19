@@ -1,7 +1,6 @@
 package com.example.malladmin.service.impl;
 
 import com.example.malladmin.service.UmsAdminCacheService;
-import com.example.malladmin.service.UmsAdminService;
 import com.example.mallcommon.service.RedisService;
 import com.example.mallmbg.model.UmsAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,6 @@ import org.springframework.stereotype.Service;
 public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     @Autowired
     private RedisService redisService;
-
-    @Autowired
-    private UmsAdminService umsAdminService;
 
     @Value("${redis.database}")
     private String REDIS_DATABASE;
