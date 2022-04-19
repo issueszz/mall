@@ -51,7 +51,9 @@ mall
 2. `mall-mbg`MyBatisGenerator生产的数据库操作模块(✅)
     1. MyBatis Generator通过数据库直接生成实体类、单表CURD代码、mapper.xml文件
 3. `mall-auth`基于Spring Security Oauth2统一认证中心(✅)
-    1. 
+    1. 配置password模式认证服务，refresh_token模式刷新令牌
+    2. 提供返回令牌接口
+    3. 为网关提供FSA公钥接口验证签名是否合法
 4. `mall-gateway`基于Spring Cloud Gateway网关服务(✅) 
 5. `mall-admin`后台管理系统服务()
 6. `mall-search`基于Elasticsearch的商品搜索服务(✅)
