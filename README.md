@@ -55,7 +55,7 @@ mall
     2. 提供返回令牌接口(✅)
     3. 提供网关需要的RSA公钥接口验证签名是否合法(✅)
 4. `mall-gateway`基于Spring Cloud Gateway网关服务(✅)
-    1. 配置路由规则、 Oauth2中RSA公钥及路由白名单(✅)
+    1. 配置路由规则、Oauth2中RSA公钥及路由白名单(✅)
     2. 使用@EnableWebFluxSecurity为网关服务开启安全配置
     3. 实现ReactiveAuthorizationManager接口打造自定义鉴权操作(✅)
     4. 添加全局过滤器，解析鉴权通过的JWT中用户信息存入请求header(✅)
@@ -63,7 +63,11 @@ mall
 5. `mall-search`基于Elasticsearch的商品搜索服务(✅)
     1. 整合Elasticsearch实现商品信息的导入、查询、修改、删除等等(✅)
 6. `mall-monitor`基于Spring Boot Admin的微服务监控中心(✅)
-7. `mall-admin`后台管理系统服务()   
-8. `mall-portal`移动端商城服务()
+7. `mall-admin`后台管理系统服务(⭕️)
+    1. 商品管理模块(✅)
+    2. 订单模块(✅)
+    3. 权限模块(✅)
+    4. 营销模块(⭕)
+8. `mall-portal`移动端商城服务(⭕)
 
 
