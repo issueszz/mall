@@ -49,15 +49,21 @@ mall
     3. 整合redis，注入StringRedisTemplate，实现RedisService接口(✅)
     4. 等等
 2. `mall-mbg`MyBatisGenerator生产的数据库操作模块(✅)
-    1. MyBatis Generator通过数据库直接生成实体类、单表CURD代码、mapper.xml文件
+    1. MyBatis Generator通过数据库直接生成实体类、单表CURD代码、mapper.xml文件(✅)
 3. `mall-auth`基于Spring Security Oauth2统一认证中心(✅)
-    1. 配置password模式认证服务，refresh_token模式刷新令牌
-    2. 提供返回令牌接口
-    3. 为网关提供FSA公钥接口验证签名是否合法
-4. `mall-gateway`基于Spring Cloud Gateway网关服务(✅) 
-5. `mall-admin`后台管理系统服务()
-6. `mall-search`基于Elasticsearch的商品搜索服务(✅)
-7. `mall-monitor`基于Spring Boot Admin的微服务监控中心(✅)
-8. `mall-portal`移动端商城服务
+    1. 提供password模式认证服务、refresh_token模式刷新令牌(✅)
+    2. 提供返回令牌接口(✅)
+    3. 提供网关需要的RSA公钥接口验证签名是否合法(✅)
+4. `mall-gateway`基于Spring Cloud Gateway网关服务(✅)
+    1. 配置路由规则、 Oauth2中RSA公钥及路由白名单(✅)
+    2. 使用@EnableWebFluxSecurity为网关服务开启安全配置
+    3. 实现ReactiveAuthorizationManager接口打造自定义鉴权操作(✅)
+    4. 添加全局过滤器，解析鉴权通过的JWT中用户信息存入请求header(✅)
+    5. 添加GlobalCorsConfig配置文件来允许跨域访问(✅)
+5. `mall-search`基于Elasticsearch的商品搜索服务(✅)
+    1. 整合Elasticsearch实现商品信息的导入、查询、修改、删除等等(✅)
+6. `mall-monitor`基于Spring Boot Admin的微服务监控中心(✅)
+7. `mall-admin`后台管理系统服务()   
+8. `mall-portal`移动端商城服务()
 
 
