@@ -70,4 +70,7 @@ mall
     4. 营销模块(⭕)
 8. `mall-portal`移动端商城服务(⭕)
 
+## 参考链接
+[参考项目](https://github.com/macrozheng/mall.git)
+
 
