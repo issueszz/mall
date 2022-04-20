@@ -43,6 +43,7 @@ mall
 | Kubernetes             | 应用容器管理平台     | https://kubernetes.io/                               |
 
 ## 项目排期
+0. docker-compose配置开发环境(Mysql/Redis/Elasticsearch/Logstash/Kibana等等)(✅)
 1. `mall-common`工具类及通用代码模块(✅)
     1. 统一接口返回值(✅)
     2. 添加AOP切面实现接口日志记录(✅)
@@ -69,7 +70,7 @@ mall
     3. 权限模块(✅)
     4. 营销模块(⭕)
 8. `mall-portal`移动端商城服务(⭕)
-
+9. jenkins自动化部署(✅)
 ## 参考链接
 [参考项目](https://github.com/macrozheng/mall.git)
 
