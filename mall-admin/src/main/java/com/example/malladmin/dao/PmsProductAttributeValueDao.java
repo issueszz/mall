@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface PmsProductAttributeValueDao {
-    int insert(@Param("list") List<PmsProductAttributeValue> productAttributeValueList);
+    int insertList(@Param("list") List<PmsProductAttributeValue> productAttributeValueList);
 }
